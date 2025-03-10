@@ -52,7 +52,7 @@ jobs:
             ephem \
             pylint \
             coverage
-      - - name: "Build and Install"
+      - name: "Build and Install"
         run: python -m pip install .
       - name: Test
         env:
