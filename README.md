@@ -1,4 +1,6 @@
 # jdep
+[![GHA](https://github.com/lwa-project/jdep/actions/workflows/main.yml/badge.svg)](https://github.com/lwa-project/jdep/actions/workflows/main.yml)
+
 jdep (Jovian Decametric Emission Probability) is a Python wrapper around Figure 1
 of [Zarka et al. (2018, A&A, 618, A84)](https://www.aanda.org/articles/aa/full_html/2018/10/aa33586-18/aa33586-18.html)
 that is designed to make it easier to find when Jupiter might be emission below
