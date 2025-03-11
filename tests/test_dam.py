@@ -54,19 +54,19 @@ class dam_tests(unittest.TestCase):
         """Test determining Jupiter's central meridian longitude"""
         
         for date,values in _DATA.items():
-            self.assertTrue(abs(values['cml']-jdep.get_jupiter_cml(date)) < 3)
+            self.assertTrue(abs(values['cml']-jdep.get_jupiter_cml(date)) < 1)
         
     def test_io_phase(self):
         """Test determining the phase of Io"""
         
         for date,values in _DATA.items():
-            self.assertTrue(abs(values['io']-jdep.get_io_phase(date)) < 3)
+            self.assertTrue(abs(values['io']-jdep.get_io_phase(date)) < 1)
         
     def test_ganymede_phase(self):
         """Test determining the phase of Ganymede"""
         
         for date,values in _DATA.items():
-            self.assertTrue(abs(values['ganymede']-jdep.get_ganymede_phase(date)) < 3)
+            self.assertTrue(abs(values['ganymede']-jdep.get_ganymede_phase(date)) < 1)
             
     def test_emission_probability(self):
         """Test determining the probability of decametric emission"""

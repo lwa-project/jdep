@@ -87,18 +87,31 @@ def get_jupiter_cml(date: Union[str,datetime,float,Time]) -> float:
     # Get the JD
     date = _date_to_date(date)
     jd = date.jd
+    rjd = jd - 2455636.938
+    sjd = jd - 2451870.628
     
-    # From https://www.projectpluto.com/grs_form.htm
-    jup_mean = (jd - 2455636.938) * 360. / 4332.89709
-    eqn_center = 5.55 * np.sin( np.deg2rad(jup_mean) )
-    angle = (jd - 2451870.628) * 360. / 398.884 - eqn_center
-    correction = 11 * np.sin( np.deg2rad(angle) ) \
-                 + 5 * np.cos( np.deg2rad(angle) ) \
-                 - 1.25 * np.cos( np.deg2rad(jup_mean) ) - eqn_center
+    # Based on the concept from https://www.projectpluto.com/grs_form.htm
+    # This correction was derived by comparing the naive CML calculation with
+    # results from JPL Horizons over a period of 2000 Jan 1 to 2075 Dec 31.
+    ## Secular trend
+    correction = -2.65534263 -6.38791511e-04 * rjd
     
-    # -eqn_center seems to be needed to get values closer to what is shown
-    # at https://jupiter-probability-tool.obspm.fr/
-    cml = 138.41 + 870.4535567*jd + correction - eqn_center
+    ## Orbit-related parameters
+    jup_mean = rjd * 360. / 4331.81193
+    eqn_center = 5.46778023 * np.sin( np.deg2rad(jup_mean) )
+    angle = sjd * 360. / 398.884274 - eqn_center
+    correction += 10.9626728 * np.sin( np.deg2rad(angle)) \
+                  + 4.99351484 * np.cos( np.deg2rad(angle)) \
+                  - 0.189682196 * np.sin( np.deg2rad(jup_mean)) \
+                  + 1.01965546 * np.cos( np.deg2rad(jup_mean)) \
+                  - eqn_center
+                 
+    ## Secondary periodicities
+    angle2 = sjd * 360. / 199.44218147 - eqn_center
+    correction += 0.43106369 * np.sin( np.deg2rad(angle2 - 53.74293727)) \
+                 + 0.97744619 * np.cos( np.deg2rad(angle2 - 53.74293727))
+    
+    cml = 138.41 + 870.4535567*jd + correction
     return cml % 360
 
 
