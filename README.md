@@ -55,9 +55,9 @@ to keep in mind:
     tool and do not have the exact same boundaries as the outlines in the figure.
     
 In addition the `jdpe.get_jupter_cml()` function does not exactly match what you
-get for the CML from [Jupiter Radio Probability Tool](https://jupiter-probability-tool.obspm.fr/).
-From my testing the values are within +/- 3 degrees over the period of Oct 2024
-to March 2025.
+get for the CML from [JPL Horizons](https://ssd.jpl.nasa.gov/horizons/app.html).
+From my testing the values are within +/- 1 degrees over the period of Jan 2000
+to Dec 2075.
     
 [^1]: These two values are slightly higher than the maximum marking in the
       respective colorbars.  I assumed that the tick mark for the label
