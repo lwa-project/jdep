@@ -19,6 +19,6 @@ setup(name                 = "jdep",
       scripts              = glob.glob('scripts/*.py'),
       include_package_data = True,
       python_requires      = '>=3.8',
-      install_requires     = ['numpy', 'scipy', 'astropy', 'matplotlib'],
+      install_requires     = ['numpy', 'scipy', 'astropy', 'ephem', 'matplotlib'],
       zip_safe             = False
 )
