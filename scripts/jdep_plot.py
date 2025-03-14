@@ -36,7 +36,7 @@ def main(args):
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description='the probability of Jovain decametric emission on particular UTC date',
+        description='plot the probability of Jovain decametric emission on particular UTC date',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
         )
     parser.add_argument('date', type=str,
