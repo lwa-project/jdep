@@ -5,7 +5,7 @@ from typing import Union, Optional, List
 from astropy.time import TimeDelta
 
 from .dam import PROBABILITY_MAP_ALL, PROBABILITY_MAP_NONIO, REGIONS_MAP_IO, REGIONS_MAP_NONIO, REGIONS_BITS
-from .dam import _date_to_date, get_jupiter_cml, get_io_phase
+from .dam import _date_to_date, get_jupiter_cml, get_io_phase, get_ganymede_phase
 
 from matplotlib.figure import Figure
 from matplotlib.backend_bases import FigureManagerBase
